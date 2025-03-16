@@ -37,7 +37,7 @@ const ResumeSection = ({ title, icon, color, children, delay = 0 }: ResumeSectio
       bg: "bg-retro-neon-cyan/10"
     },
     green: {
-      border: "border-retro-neon-green",
+      border: "neon-border-green",
       text: "text-retro-neon-green",
       bg: "bg-retro-neon-green/10"
     },
@@ -52,7 +52,7 @@ const ResumeSection = ({ title, icon, color, children, delay = 0 }: ResumeSectio
 
   return (
     <section className={`mb-10 transform transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-      <div className={`${styles.border} rounded-lg pixel-corners p-6 backdrop-blur-sm relative overflow-hidden`}>
+      <div className={`${styles.border} rounded-lg pixel-corners p-6 backdrop-blur-sm relative overflow-hidden bg-retro-dark-purple/80`}>
         <div className={`absolute top-0 left-0 w-full h-1 ${styles.bg}`}></div>
         <div className="flex items-center mb-6">
           <div className={`${styles.bg} p-2 rounded-full mr-3`}>

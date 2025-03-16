@@ -63,17 +63,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Retro 80s color palette
+				// Updated retro color palette with more blue, green, and black
 				retro: {
-					background: '#120B29',
-					grid: '#271463',
+					background: '#0A1116',
+					grid: '#123456',
 					'neon-pink': '#FF3CAC',
-					'neon-blue': '#2E73FF',
-					'neon-cyan': '#0CECDD',
-					'neon-green': '#14F195',
+					'neon-blue': '#0091FF',
+					'neon-cyan': '#00E5FF',
+					'neon-green': '#00FF9D',
 					'neon-purple': '#784DFD',
-					'dark-purple': '#200B4B',
-					black: '#000112',
+					'dark-purple': '#0C1F30',
+					black: '#000912',
 				}
 			},
 			borderRadius: {
@@ -184,7 +184,7 @@ export default {
 				'pixel': ['"Silkscreen"', 'cursive']
 			},
 			backgroundImage: {
-				'grid-pattern': 'linear-gradient(#271463 1px, transparent 1px), linear-gradient(90deg, #271463 1px, transparent 1px)',
+				'grid-pattern': 'linear-gradient(#123456 1px, transparent 1px), linear-gradient(90deg, #123456 1px, transparent 1px)',
 				'crt-overlay': 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))'
 			}
 		}
