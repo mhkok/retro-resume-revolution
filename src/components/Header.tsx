@@ -1,8 +1,40 @@
 
 import React from 'react';
-import { Zap, Github, Linkedin, Mail } from 'lucide-react';
+import { Zap, Github, Linkedin, Mail, Download } from 'lucide-react';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const Header = () => {
+  const downloadAsPDF = async () => {
+    const element = document.body;
+    const canvas = await html2canvas(element, {
+      backgroundColor: '#000511',
+      scale: 2,
+      useCORS: true,
+      allowTaint: true
+    });
+    
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF();
+    const imgWidth = 210;
+    const pageHeight = 295;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    let heightLeft = imgHeight;
+    let position = 0;
+
+    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+    heightLeft -= pageHeight;
+
+    while (heightLeft >= 0) {
+      position = heightLeft - imgHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+    }
+
+    pdf.save('John_Doe_Resume.pdf');
+  };
+
   return (
     <header className="py-10 px-6 relative">
       <div className="max-w-4xl mx-auto">
@@ -26,6 +58,9 @@ const Header = () => {
             <a href="#contact" className="retro-btn">
               <Zap className="inline-block w-4 h-4 mr-1" /> Contact
             </a>
+            <button onClick={downloadAsPDF} className="retro-btn">
+              <Download className="inline-block w-4 h-4 mr-1" /> Download PDF
+            </button>
             <div className="flex space-x-3">
               <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
                 className="bg-retro-dark-purple p-2 rounded border-2 border-retro-neon-cyan hover:bg-retro-grid transition-all duration-300">
